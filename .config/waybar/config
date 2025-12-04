@@ -5,7 +5,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "custom/spotify", "custom/weather", "custom/mail", "custom/storage", "backlight", "pulseaudio", "network", "idle_inhibitor", "battery", "clock"],
+    "modules-right": ["tray", "custom/weather", "custom/storage", "backlight", "pulseaudio", "bluetooth", "network", "idle_inhibitor", "battery", "clock"],
     "sway/mode": {
         "format": " {}"
     },
@@ -32,6 +32,10 @@
             "critical": 10
         },
         "tooltip": false
+    },
+    "bluetooth": {
+        "format": "{status}",
+	"on-click": "blueman-manager"
     },
     "network": {
         "format": "{icon}",
