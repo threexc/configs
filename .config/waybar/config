@@ -34,17 +34,24 @@
         "tooltip": false
     },
     "bluetooth": {
-        "format": "{status}",
-	"on-click": "blueman-manager"
+        "format": "{icon}",
+	"on-click": "blueman-manager",
+	"format-icons": {
+	    "default": "",
+	    "connected": " ON",
+	    "no-device": " OFF"
+	}
     },
     "network": {
         "format": "{icon}",
-        "format-alt": "{ipaddr}/{cidr} {icon}",
+	"format-wifi": "{icon} {essid}",
+	"format-ethernet": "{icon} {ifname}",
+        "format-alt": "{icon} {ipaddr}/{cidr}",
         "format-alt-click": "click-right",
         "format-icons": {
-            "wifi": ["", "" ,""],
-            "ethernet": [""],
-            "disconnected": [""]
+            "wifi": "",
+            "ethernet": "",
+            "disconnected": ""
         },
         "on-click": "termite -e nmtui",
     "tooltip": false
