@@ -18,12 +18,12 @@
         "tooltip": false
     },
     "clock": {
-        "format": "{:%a %d %b %H:%M}",
+        "format": "| {:%a %d %b %H:%M}",
         "tooltip": false
     },
     "battery": {
-        "format": "{capacity}% {icon}",
-        "format-alt": "{time} {icon}",
+        "format": "| {capacity}% {icon}",
+        "format-alt": "| {time} {icon}",
         "format-icons": ["", "", "", "", ""],
         "format-charging": "{capacity}% ",
         "interval": 30,
@@ -34,7 +34,7 @@
         "tooltip": false
     },
     "bluetooth": {
-        "format": "{icon}",
+        "format": "| {icon}",
 	"on-click": "blueman-manager",
 	"format-icons": {
 	    "default": "",
@@ -43,10 +43,10 @@
 	}
     },
     "network": {
-        "format": "{icon}",
-	"format-wifi": "{icon} {essid}",
-	"format-ethernet": "{icon} {ifname}",
-        "format-alt": "{icon} {ipaddr}/{cidr}",
+        "format": "| {icon}",
+	"format-wifi": "| {icon} {essid}",
+	"format-ethernet": "| {icon} {ifname}",
+        "format-alt": "| {icon} {ipaddr}/{cidr}",
         "format-alt-click": "click-right",
         "format-icons": {
             "wifi": "",
@@ -57,28 +57,24 @@
     "tooltip": false
     },
     "pulseaudio": {
-        "format": "{icon}",
-        "format-alt": "{volume} {icon}",
-        "format-alt-click": "click-right",
-        "format-muted": "",
+        "format": "| {icon}",
         "format-icons": {
-            "phone": [" ", " ", " ", " "],
-            "default": ["", "", "", ""]
+            "default": ["", "", ""]
         },
         "scroll-step": 10,
         "on-click": "pavucontrol",
         "tooltip": false
     },
     "custom/storage": {
-        "format": "{} ",
-        "format-alt": "{percentage}% ",
+        "format": "| {} ",
+        "format-alt": "| {percentage}% ",
         "format-alt-click": "click-right",
         "return-type": "json",
         "interval": 60,
         "exec": "~/.config/waybar/modules/storage.sh"
     },
     "backlight": {
-        "format": "{icon}",
+        "format": "| {icon}",
         "format-alt": "{percent}% {icon}",
         "format-alt-click": "click-right",
         "format-icons": ["", ""],
@@ -95,9 +91,9 @@
         "exec-if": "ping wttr.in -c1"
     },
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "| {icon}",
         "format-icons": {
-            "activated": "",
+            "activated": "",
             "deactivated": ""
         },
         "tooltip": false
