@@ -22,12 +22,20 @@ if has('filetype')
     filetype plugin indent on
 endif
 
-set pastetoggle=<F2>    " hotkey for paste mode to avoid extra indentation
-set updatetime=100      " reduce time between updates from 4000ms to 100ms
-set textwidth=80        " wrap width
 set autoindent          " automatically indent
-set visualbell          " don't beep
+set hidden              " allow switching buffers without saving
+set hlsearch            " highlight search results
+set ignorecase          " case-insensitive search...
+set incsearch           " show search results as you type
 set mouse=              " disable mouse
+set pastetoggle=<F2>    " hotkey for paste mode to avoid extra indentation
+set ruler               " show cursor position in status bar (redundant with airline but harmless)
+set scrolloff=5         " keep 5 lines visible above/below cursor when scrolling
+set smartcase           " ...unless you use uppercase in the search term
+set textwidth=80        " wrap width
+set updatetime=100      " reduce time between updates from 4000ms to 100ms
+set visualbell          " don't beep
+set wildmenu            " better tab completion in command mode
 
 if has("autocmd")
     " Use actual tab chars in Makefiles
