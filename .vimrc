@@ -1,3 +1,18 @@
+" Make sure Python virtualenvs don't throw a warning when starting vim. The
+" equivalent for this in neovim is:
+if exists('$VIRTUAL_ENV')
+    let &pythonthreedll = system("find /usr/lib64 -name 'libpython3.*.so.1.0' | tail -1 | tr -d '\n'")
+    python3 << EOF
+import sys
+import sysconfig
+sys.path.insert(0, sysconfig.get_path('purelib', vars={'base': '/usr', 'platbase': '/usr'}))
+EOF
+endif
+" Uncomment this instead if using neovim
+" if exists('$VIRTUAL_ENV')
+"    let g:python3_host_prog = '/usr/bin/python3'
+"endif
+
 execute pathogen#infect()
 syntax on
 colorscheme desert
@@ -13,6 +28,8 @@ set laststatus=2 " start airline immediately
 set autoindent " automatically indent
 set visualbell " don't beep
 set mouse=
+" automatically open vertical terminal alongside target file when editing
+" bel vert term
 
 if has("autocmd")
 	" Use actual tab chars in Makefiles
@@ -24,12 +41,3 @@ if has("autocmd")
 endif
 
 let g:airline_powerline_fonts = 1
-" workaround issue with powerline + virtualenv
-" Found at https://www.thismetalsky.org/2020/01/24/vim-and-powerline/
-" https://github.com/powerline/powerline/issues/1908
-python3 << EOF
-import sys
-path = "/usr/lib/python{}.{}/site-packages/".format(
-    sys.version_info.major, sys.version_info.minor)
-sys.path.append(path)
-EOF
