@@ -40,6 +40,9 @@ vim.opt.updatetime     = 100
 -- Filetype-specific indentation
 vim.api.nvim_create_augroup("FileTypeIndent", { clear = true })
 
+-- Use Esc to exit terminal mode
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true})
+
 local function set_indent(pattern, opts)
     vim.api.nvim_create_autocmd("FileType", {
         group = "FileTypeIndent",
