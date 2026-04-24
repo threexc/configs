@@ -86,3 +86,11 @@ ptest-testall() {
     do bitbake core-image-ptest-$package:do_testimage 2>&1 | tee \
     testimage_logs/$package-testimage.log; done
 }
+
+fix_host_for_ghostty() {
+    infocmp -x xterm-ghostty | ssh tgamblin@$1 -- tic -x -
+}
+. "$HOME/.cargo/env"
+
+export GRIM_DEFAULT_DIR=$HOME/grim
+export XDG_SCREENSHOTS_DIR=$GRIM_DEFAULT_DIR
