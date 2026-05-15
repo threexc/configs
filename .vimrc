@@ -1,18 +1,3 @@
-" Make sure Python virtualenvs don't throw a warning when starting vim.
-if exists('$VIRTUAL_ENV')
-    let &pythonthreedll = system("find /usr/lib64 -name 'libpython3.*.so.1.0' | tail -1 | tr -d '\n'")
-    python3 << EOF
-import sys
-import sysconfig
-sys.path.insert(0, sysconfig.get_path('purelib', vars={'base': '/usr', 'platbase': '/usr'}))
-EOF
-endif
-
-" Uncomment this instead if using neovim:
-" if exists('$VIRTUAL_ENV')
-"    let g:python3_host_prog = '/usr/bin/python3'
-" endif
-
 execute pathogen#infect()
 syntax on
 colorscheme desert
